@@ -1,0 +1,19 @@
+# Local configuration and secrets
+/local_config.php
+/.env
+/.env.*
+!.env.example
+
+# Dependencies installed from composer.lock
+/vendor/
+
+# Local diagnostics and logs
+*.log
+
+# Editors / OS
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Local archives
+*.zip

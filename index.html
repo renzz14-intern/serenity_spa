@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/original-logo.jpg">
+</head>
+
+<body>
+    
+    <!-- header section starts-->
+    <header>
+        <a href="#home" class="logo">
+            <img src="images/original-logo.jpg" alt="Serenity Spa Logo">
+        </a>
+
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="#home">HOME</a>
+                <a href="#services">SERVICES</a>
+                <a href="#about">ABOUT</a>
+                <a href="#contact">CONTACT</a>
+            </div>
+            <!-- Dynamic login/user section -->
+            <div id="auth-section">
+                <!-- Default login button (shown when not logged in) -->
+                <a href="index.php" class="login-btn" id="login-button">LOGIN</a>
+                
+                <!-- User section (shown when logged in) -->
+                <div class="user-section" id="user-section" style="display: none;">
+                    <div class="user-dropdown">
+                        <button class="user-btn" id="user-button">
+                            <i class="fas fa-user"></i>
+                            <span id="user-name">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a href="appointments.php"><i class="fas fa-calendar"></i> My Appointments</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="logout.php" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- header section ends -->
+
+    <!-- Success/Welcome message -->
+    <div id="welcome-message" class="welcome-message" style="display: none;">
+        <div class="message-content">
+            <i class="fas fa-check-circle"></i>
+            <span id="welcome-text"></span>
+            <button class="close-message" onclick="closeWelcomeMessage()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- home section starts -->
+    <section class="home" id="home">
+    <video autoplay muted loop playsinline class="home-video">
+        <source src="video/home-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content">
+        <h3>Serenity Spa</h3>
+        <p>Foot & Body Massage</p>
+        <div class="home-arrow">
+            <a href="#services" class="arrow-btn">
+                <i class="fas fa-arrow-down"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- home section ends -->
+
+    <!-- details section starts -->
+    <section class="details" id="details">
+        <h1 class="heading"><span>Experience relaxation like never before</span></h1>
+        <div class="row">
+            <div class="content">
+                <p class="subtitle">spa treatments that relieve stress, improve circulation, and restore balance to your body. Enjoy a calming atmosphere that promotes relaxation from the moment you arrive. Each session is designed to help you release tension, refresh your senses, and leave feeling renewed in both body and mind.</p>
+            </div>
+        </div>
+    </section>
+    <!-- details section ends -->
+
+    <!-- services section starts -->
+    
+<section class="services" id="services">
+    <h1 class="heading">services</h1>
+    <p class="subtitle">Indulge in our carefully curated spa treatments designed to rejuvenate your mind, body, and spirit.</p>
+
+    <div class="peek-slider-container">
+        <button class="peek-btn prev">&#10094;</button>
+        <div class="peek-slider">
+            <div class="peek-slide">
+                <img src="https://www.health.com/thmb/3x2SXCdrwYCun8rme7nUiG3PzMU=/5760x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1175433234-034014dc5b9c45edaeaf04c7b80ceafc.jpg" alt="Swedish Massage">
+                <div class="peek-overlay">
+                    <h3>Swedish Massage</h3>
+                    <p>Gentle, flowing strokes that release tension and improve circulation.</p>
+                </div>
+            </div>
+            <div class="peek-slide">
+                <img src="https://wp04-assets.cdn.ihealthspot.com/wp-content/uploads/sites/360/2024/05/Foot-Clinics-Foot-and-Ankle-Institute-of-New-England-768x512.jpg" alt="Reflexology">
+                <div class="peek-overlay">
+                    <h3>Reflexology (Foot Massage)</h3>
+                    <p>Healing through targeted pressure points on your feet.</p>
+                </div>
+            </div>
+            <div class="peek-slide">
+                <img src="https://www.kingsmillshotel.com/wp-content/uploads/2018/06/Aromatherapy-Massage.jpg" alt="Aromatherapy Massage">
+                <div class="peek-overlay">
+                    <h3>Aromatherapy Massage</h3>
+                    <p>Essential oils combined with therapeutic touch.</p>
+                </div>
+            </div>
+            <div class="peek-slide">
+                <img src="https://www.naturalhealers.com/wp-content/uploads/2020/01/stone-therapy-750x350-1.jpg" alt="Hot Stone Massage">
+                <div class="peek-overlay">
+                    <h3>Hot Stone Massage</h3>
+                    <p>Heated stones to melt away stress and tension.</p>
+                </div>
+            </div>
+            <div class="peek-slide">
+                <img src="https://media.post.rvohealth.io/wp-content/uploads/2020/07/Young-female-receiving-massage-by-therapist-in-traditional-thai-position-732x549-thumbanil-732x549.jpg" alt="Thai Massage">
+                <div class="peek-overlay">
+                    <h3>Thai Massage</h3>
+                    <p>Yoga stretches and acupressure for total body wellness.</p>
+                </div>
+            </div>
+            <div class="peek-slide">
+                <img src="https://images.squarespace-cdn.com/content/v1/5fd6918a9c252757ae07fca3/1618590712330-N3FS9PZ4718VW44COZHT/deep_tissue_massage.jpg" alt="Deep Tissue Massage">
+                <div class="peek-overlay">
+                    <h3>Deep Tissue Massage</h3>
+                    <p>Targeted therapy for deeper muscle layers and connective tissue.</p>
+                </div>
+            </div>
+        </div>
+        <button class="peek-btn next">&#10095;</button>
+    </div>
+    <button class="book-service-btn" onclick="handleServiceBooking()">Book Now</button>
+</section>
+
+    <!-- services section ends -->
+
+    <!-- about us section starts -->
+<section class="about" id="about">
+  <h1 class="heading"><span>About</span></h1>
+  <div class="row">
+    <div class="content">
+      <p>Discover the ultimate in rejuvenation with our signature <strong>Foot &amp; Body Massage</strong>. This harmonious treatment combines the revitalizing power of a full-body massage with the therapeutic focus of a foot massage "designed to enhance circulation, relieve tension, and restore harmony to your body.</p>
+      <p>Our approach promotes deep relaxation and wellness: improved blood flow nourishes tissues and supports healing gentle manipulation eases muscle stiffness and all-over tension and the soothing footwork fosters profound calm, balanced energy, and better sleep. These effects can also contribute to reduced anxiety, lowered blood pressure, and enhanced overall comfort and well-being.</p>
+      <p>Embrace this holistic experience, where every step "from foot to "is thoughtfully structured to guide you into a state of serene renewal and balanced vitality.</p>
+    </div>
+  </div>
+</section>
+<!-- about us section ends -->
+
+    <!-- contact section starts -->
+<section class="contact" id="contact">
+    <h1 class="heading"><span>contact</span> us</h1>
+        <div class="contact-form">
+            <form action="send-mail.php" method="POST" id="contactForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" required>
+                </div>
+            
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-input" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- contact section ends -->
+
+    <!-- footer section starts -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="logo">
+                <img src="images/original-logo.jpg" alt="Serenity Spa Logo" style="width: 50%; height: auto;">
+            </div>
+        </div>
+        <div class="credit">
+            <span> @Serenity Spa </span>
+        </div>
+    </section>
+    <!-- footer section ends -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

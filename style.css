@@ -1,0 +1,1190 @@
+/* =========================
+   Global Styles
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap');
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    /* REMOVED: text-transform: capitalize; - This was causing the auto-capitalization */
+    transition: .2s linear;
+}
+
+/* Apply text-transform only to specific elements that need it */
+.heading,
+.navbar a,
+.btn,
+h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
+}
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --main-color: linear-gradient(135deg, #d4a574 0%, #c19660 100%);
+    --hover-color: linear-gradient(135deg, #c19660 0%, #b08850 100%);
+    --section-alt: #ffffff;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section {
+    padding: 2rem 9%;
+    background: var(--bg-color);
+}
+
+.heading {
+    text-align: center;
+    font-size: 4rem;
+    color: linear-gradient(135deg, #d4a574 0%, #c19660 100%);
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgba(143, 185, 150, 0.05);
+}
+
+.heading span {
+    color: linear-gradient(135deg, #d4a574 0%, #c19660 100%);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background: #333;
+    color: #fff;
+    padding: .9rem 3.5rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover {
+    background: var(--hover-color);
+}
+
+/* =========================
+   Header
+========================= */
+header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background:#92a98f;
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .5rem 1rem rgba(0,0, 0, .1);
+}
+
+header .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--main-color);
+}
+
+header .logo img {
+    height: 70px;
+    width: auto;
+}
+
+header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .navbar .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+header .navbar .nav-links a {
+    padding: 0 1.5rem;
+    color: #ffffff;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+header .navbar .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+header .navbar .nav-links a:hover {
+    color: #ffffff;
+}
+
+header .navbar .nav-links a:hover::after {
+    width: 100%;
+}
+
+header .navbar .login-btn {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 40%);
+    color: #f5f3f0;
+    padding: 0.8rem 3.2rem;
+    border-radius: 7rem;
+    font-weight: bold;
+    border:none;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 20px rgba(231, 230, 230, 0.685);
+    transition: all 0.3s ease;
+}
+
+header .navbar .login-btn:hover {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    border: none;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(231, 230, 230);
+}
+
+/* =========================
+   User Authentication Section
+========================= */
+.user-section {
+    position: relative;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    color: #ffffff;
+    padding: 0.8rem 2rem;
+    border-radius: 2.5rem;
+    font-weight: 500;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(250, 250, 250, 0.662);
+}
+
+.user-btn:hover {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(250, 250, 250, 0.662);
+}
+
+.user-btn i:last-child {
+    transition: transform 0.3s ease;
+}
+
+.user-btn:hover i:last-child {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    z-index: 1001;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(212, 165, 116, 0.1);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.dropdown-content.show {
+    display: block;
+    animation: dropdownSlide 0.3s ease-out;
+}
+
+@keyframes dropdownSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-content a {
+    color: #5a4a3a;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dropdown-content a:hover {
+    background: rgba(212, 165, 116, 0.1);
+    color: #d4a574;
+    transform: translateX(5px);
+}
+
+.dropdown-content a.logout-link {
+    color: #dc3545;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: none;
+}
+
+.dropdown-content a.logout-link:hover {
+    background: rgba(220, 53, 69, 0.1);
+    color: #c82333;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.1);
+    margin: 5px 0;
+}
+
+/* =========================
+   Welcome Message
+========================= */
+.welcome-message {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 1px solid #c3e6cb;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 25px rgba(195, 230, 203, 0.3);
+    z-index: 1002;
+    max-width: 350px;
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #155724;
+    font-size: 1.4rem;
+}
+
+.message-content i {
+    color: #28a745;
+    font-size: 1.6rem;
+}
+
+.close-message {
+    background: none;
+    border: none;
+    color: #155724;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    font-size: 1.4rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.close-message:hover {
+    opacity: 1;
+}
+
+/* Mobile menu elements removed - desktop only */
+
+/* =========================
+   Home Section
+========================= */
+.home {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+
+.home-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0); /* transparent overlay */
+}
+
+.home .content {
+    position: relative;
+    z-index: 1;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    color: var(--bg-color); /* white text */
+    margin-bottom: 1rem;
+}
+
+.home .content p {
+    font-size: 2rem;
+    color: #ffffff; /* white text */
+    margin: 1rem 0 2rem 0;
+}
+
+.home-arrow {
+    margin-top: 0rem;
+}
+
+.arrow-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.arrow-btn i {
+    font-size: 2.5rem;
+    color: #ffffff;
+    transition: transform 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    transform: scale(1.1);
+}
+.arrow-btn:hover i {
+    transform: translateY(0px);
+}
+
+/* =========================
+   Details Section
+========================= */
+.details .row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+}
+
+.details .row .content {
+    flex: 1 1 40rem;
+}
+
+.details .row .content p {
+    font-size: 2rem;
+    color: #666;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+.details .subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #666;
+    margin-bottom: 5rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* =========================
+   Services Section
+========================= */
+.services {
+    background: #f8f9fa;
+    padding: 6rem 5% 4rem 5%;
+}
+
+.services .heading {
+    font-size: 4rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+.services .subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.peek-slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Fixed: Ensure container has proper height and positioning context */
+    min-height: 400px;
+}
+
+.peek-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 60px; /* Added horizontal padding to prevent overlap with buttons */
+    scroll-snap-type: x mandatory;
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    /* Prevent flex items from wrapping or shrinking */
+    flex-wrap: nowrap;
+    width: 100%;
+    /* Fixed: Ensure proper height */
+    min-height: 380px;
+}
+
+.peek-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.peek-slide {
+    /* Fixed: Use consistent sizing */
+    min-width: 300px;
+    width: 300px; /* Fixed width to prevent collapsing */
+    flex: 0 0 300px; /* Don't grow, don't shrink, fixed basis */
+    border-radius: 10px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Fixed: Ensure proper positioning */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.peek-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.peek-slide img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.peek-slide:hover img {
+    transform: scale(1.05);
+}
+
+.peek-overlay {
+    padding: 20px;
+    background: white;
+    text-align: center;
+    flex-grow: 1; /* Fill remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.peek-overlay h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+.peek-overlay p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.book-service-btn {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(247, 247, 246, 0.941);
+    align-self: center; /* Center the button */
+    width: fit-content;
+    margin-left: 50rem;
+}
+
+.book-service-btn:hover {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(247, 247, 246, 0.941);
+}
+
+.peek-btn {
+    /* Fixed: More stable positioning */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.8rem;
+    z-index: 100; /* Higher z-index to stay on top */
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fixed: Prevent button from moving */
+    flex-shrink: 0;
+    user-select: none;
+    outline: none;
+}
+
+.peek-btn.prev {
+    left: 10px; /* Positioned from container edge */
+}
+
+.peek-btn.next {
+    right: 10px; /* Positioned from container edge */
+}
+
+.peek-btn:hover {
+    background: rgba(0,0,0,0.9);
+    /* Fixed: Only scale, don't change position */
+    transform: translateY(-50%) scale(1.1);
+}
+
+.peek-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Fixed: Ensure buttons stay in place on click */
+.peek-btn:focus {
+    outline: none;
+    transform: translateY(-50%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .peek-slider {
+        padding: 10px 50px; /* Adjusted padding for mobile */
+    }
+    
+    .peek-slide {
+        min-width: 280px;
+        width: 280px;
+        flex: 0 0 280px;
+    }
+    
+    .peek-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+    
+    .peek-btn.prev {
+        left: 5px;
+    }
+    
+    .peek-btn.next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .peek-slider {
+        padding: 10px 45px;
+    }
+    
+    .peek-slide {
+        min-width: 260px;
+        width: 260px;
+        flex: 0 0 260px;
+    }
+    
+    .peek-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================
+   About Section
+========================= */
+.about .row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+}
+
+.about .row .content {
+    flex: 1 1 40rem;
+}
+
+.about .row .content p {
+    font-size: 2rem;
+    color: #666;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+/* =========================
+   Contact Section
+========================= */
+.contact {
+    background: #f8f9fa;
+    padding: 6rem 5%;
+}
+
+.contact .heading {
+    font-size: 4rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Contact Info Styles */
+.contact-info {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: rgba(212, 165, 116, 0.05);
+    transform: translateX(5px);
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item .icon {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+}
+
+.info-item .info-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.info-item .info-content p {
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Contact Form Styles - FIXED FOR CAPITALIZATION */
+.contact-form {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.8rem;
+    /* Keep capitalize for labels */
+    text-transform: capitalize;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.4rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafafa;
+    color: #333;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    /* FIXED: Remove text-transform to prevent auto-capitalization */
+    text-transform: none;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #92a98f;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(146, 169, 143, 0.1);
+}
+
+.form-input::placeholder {
+    color: #999;
+    font-style: italic;
+    /* FIXED: Ensure placeholders are not capitalized */
+    text-transform: none;
+}
+
+/* Select dropdown styling */
+.form-input select {
+    cursor: pointer;
+}
+
+/* Textarea specific styling */
+textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 200px;
+    /* FIXED: Ensure textarea content is not capitalized */
+    text-transform: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: linear-gradient(135deg, #dbfed7 0%, #92a98f 50%);
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(146, 169, 143, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    /* Keep capitalize for button text */
+    text-transform: capitalize;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #c8e6c3 0%, #7f9a7c 50%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(146, 169, 143, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn i {
+    font-size: 1.4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 4rem 5%;
+    }
+    
+    .contact .heading {
+        font-size: 3rem;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 2rem;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .info-item .icon {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact {
+        padding: 3rem 3%;
+    }
+    
+    .contact .heading {
+        font-size: 2.5rem;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .form-input {
+        padding: 1rem 1.2rem;
+        font-size: 1.3rem;
+    }
+    
+    .submit-btn {
+        padding: 1.3rem 2rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* =========================
+   Footer
+========================= */
+.footer {
+    background: var(--section-alt);
+}
+
+.footer .box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .box-container .logo {
+    width: 50%;
+    height: 50%;
+    margin: 2rem auto;
+    text-align: center; 
+}
+
+.footer .credit {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: var(--main-color);
+    border-top: var(--main-color);
+}
+
+.footer .credit span {
+    color: var(--main-color);
+}
+
+/* =========================
+   Appointments Page
+========================= */
+.appointments-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #92a98f 0%, #7f9a7c 100%);
+    padding: 2rem 5%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.appointments-header .appointments-title {
+    font-size: 3.2rem;
+    color: white;
+    margin: 0;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.appointments-main {
+    margin-top: 120px;
+    padding: 4rem 5%;
+    min-height: calc(100vh - 120px);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.appointments-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 4rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 1px solid rgba(146, 169, 143, 0.1);
+}
+
+/* No Appointments State */
+.no-appointments {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.no-appointments-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 3rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 15px;
+    border: 2px dashed #dee2e6;
+}
+
+.no-appointments-content i {
+    font-size: 8rem;
+    color: #92a98f;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.no-appointments-content p {
+    font-size: 1.8rem;
+    color: #6c757d;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+/* Appointments Table */
+.appointments-table-container {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.appointments-table th {
+    background: linear-gradient(135deg, #92a98f 0%, #7f9a7c 100%);
+    padding: 2rem 1.5rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.appointments-table td {
+    padding: 2rem 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #f1f3f4;
+    vertical-align: middle;
+}
+
+.appointment-row {
+    transition: all 0.3s ease;
+}
+
+.appointment-row:nth-child(even) {
+    background-color: #fafbfc;
+}
+
+.appointment-row:hover {
+    background: linear-gradient(135deg, rgba(146, 169, 143, 0.05) 0%, rgba(127, 154, 124, 0.05) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-row:last-child td {
+    border-bottom: none;
+}
+
+.appointment-date {
+    font-weight: 600;
+    color: #495057;
+    font-size: 1.6rem;
+}
+
+.appointment-time {
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.appointment-service {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.6rem;
+}
+
+.appointment-room {
+    color: #6c757d;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.appointment-price {
+    font-weight: 700;
+    color: #92a98f;
+    font-size: 1.7rem;
+}
+
+.appointment-reference {
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    color: #6c757d;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+/* Actions */
+.appointments-actions {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 2px solid #f1f3f4;
+}
+
+.book-new-appointment-btn {
+    background: linear-gradient(135deg, #92a98f 0%, #7f9a7c 100%);
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.7rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(146, 169, 143, 0.3);
+}
+
+.book-new-appointment-btn:hover {
+    background: linear-gradient(135deg, #7f9a7c 0%, #6d8869 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(146, 169, 143, 0.4);
+}
+
+.book-new-appointment-btn i {
+    font-size: 1.5rem;
+}
